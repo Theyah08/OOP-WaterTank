@@ -1,17 +1,16 @@
 public class waterTank {
-    
+
     private double capacity;
     private double currentlevel;
 
     // user can create own capacity for water tank
     public waterTank(double capacity) {
-        if (capacity <= 0){
+        if (capacity <= 0) {
             throw new IllegalArgumentException("The capacity must be in positive");
         }
         this.capacity = capacity;
         this.currentlevel = 0;
     }
-
 
     // user adding water
     public void fill(double liters) {
@@ -30,7 +29,6 @@ public class waterTank {
         }
     }
 
-
     // user remove water
     public void drain(double liters) {
         if (liters <= 0) {
@@ -47,47 +45,42 @@ public class waterTank {
         }
     }
 
-
     // displaying Water Tank's current level
     public double getCurrentLevel() {
         return currentlevel;
     }
 
-
     public boolean isFull() {
         return currentlevel == capacity;
     }
-
 
     public boolean isEmpty() {
         return currentlevel == 0;
     }
 
-
     // visual display of tank
     public void displayTank() {
-        int height = 10;
+        int height = 7;
         int filledrows = (int) Math.round((currentlevel / capacity) * height);
 
-        System.out.println("     ╔════════╗");
+        System.out.println("     |````````|");
         for (int i = height; i > 0; i--) {
             if (i <= filledrows) {
                 if (i == filledrows) {
-                    System.out.println("     ║~~~~~~~~║");
+                    System.out.println("     |~~~~~~~~|");
                 } else {
-                    System.out.println("     ║████████║");
-                } 
-            }else {
-                    System.out.println("     ║        ║");
+                    System.out.println("     |████████|");
+                }
+            } else {
+                System.out.println("     |        |");
             }
         }
 
-        System.out.println("     ╚════════╝");
+        System.out.println("     |________|");
 
         double percent = (currentlevel / capacity) * 100;
         System.out.printf("Capacity: %.1f Liters | Current Level: %.1f Liters (%.1f%%)\n",
                 capacity, currentlevel, percent);
     }
-
 
 }
