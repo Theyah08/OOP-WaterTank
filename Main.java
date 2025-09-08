@@ -6,6 +6,7 @@ public class Main {
         waterTank tank = null;
 
         while (tank == null) {
+            System.out.println("\n === Welcome to Water Tank ===");
             System.out.print("Enter water tank capacity (liters): ");
             try {
                 double capacity = scanner.nextDouble();
@@ -18,19 +19,17 @@ public class Main {
             }
         }
 
-
         boolean display = true;
         while (display) {
             System.out.println("\n === Water Tank ===");
-            System.out.println("1. Fill tank");
-            System.out.println("2. Drain Tank");
+            System.out.println("1. Fill Water Tank");
+            System.out.println("2. Drain Water Tank");
             System.out.println("3. Check current water level");
-            System.out.println("4. Check if tank is Full");
-            System.out.println("5. Check if tank is Empty");
+            System.out.println("4. Check if Water Tank is Full");
+            System.out.println("5. Check if Water Tank is Empty");
             System.out.println("6. Display Tank Visualization");
             System.out.println("7. Exit");
             int choice = -1;
-
 
             try {
                 System.out.print("Enter your choice (1 to 7): ");
@@ -41,9 +40,8 @@ public class Main {
                 continue;
             }
 
-            // giving space to separate 
+            // giving space to separate
             System.out.println(" ");
-
 
             switch (choice) {
                 case 1:
@@ -57,7 +55,6 @@ public class Main {
                     }
                     break;
 
-
                 case 2:
                     try {
                         System.out.println("Enter liters to drain: ");
@@ -69,43 +66,37 @@ public class Main {
                     }
                     break;
 
-
                 case 3:
                     System.out.println("Current water level: " + tank.getCurrentLevel());
+                    tank.displayTank();
                     break;
-
 
                 case 4:
                     if (tank.isFull()) {
-                        System.out.println("Water Tank is Full");
+                        System.out.println("Water Tank is already Full");
                     } else {
                         System.out.println("Water Tank is not full, current water level: " + tank.getCurrentLevel());
-                        tank.displayTank();
                     }
                     break;
-
 
                 case 5:
                     if (tank.isEmpty()) {
-                        System.out.println("Water Tank is Empty ");
-                        tank.displayTank();
+                        System.out.println("Water Tank is currently Empty ");
                     } else {
-                        System.out.println("Water Tank is still at: " + tank.getCurrentLevel() + " liters and not empty.");
+                        System.out.println(
+                                "Water Tank is at: " + tank.getCurrentLevel() + " liters and not empty.");
                     }
                     break;
-
 
                 case 6:
                     tank.displayTank();
                     break;
-
 
                 case 7:
                     System.out.println("Goodbye, See you next time :) ");
                     display = false;
                     scanner.close();
                     break;
-
 
                 default:
                     System.out.println("Invalid choice! Please select 1-7.");
@@ -115,5 +106,5 @@ public class Main {
         }
 
     }
-    
+
 }
